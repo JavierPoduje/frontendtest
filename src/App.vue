@@ -3,12 +3,10 @@
   <div class="hola">hola</div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
-.hola {
-  border: 1px solid red;
-
-}
+  .hola {
+    border: 1px solid red;
+  }
 </style>
