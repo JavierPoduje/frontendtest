@@ -35,6 +35,7 @@
         this.clickedSquares.push(square);
       },
       onClear() {
+        this.lastSquareClicked = null;
         this.clickedSquares = [];
       },
     },
