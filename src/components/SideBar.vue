@@ -73,6 +73,8 @@
 <style scoped lang="scss">
   @import '../assets/styles/variables.scss';
 
+  $scrollbar-width: 10px;
+
   .sidebar {
     width: calc(712px / 3);
     height: 712px;
@@ -83,12 +85,27 @@
     align-items: center;
     gap: 1rem;
     border-radius: 4px;
+    padding-right: $scrollbar-width;
 
     &__rows {
       display: flex;
       flex-direction: column;
       padding: 0.5rem;
       width: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: $scrollbar-width;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: map-get($colors, scrollbar-thumb);
+        border-radius: map-get($box, border-radius);
+      }
+      &::-webkit-scrollbar-track {
+        background-color: map-get($colors, scrollbar-track);
+        border-radius: map-get($box, border-radius);
+      }
     }
 
     &__row {
@@ -124,6 +141,7 @@
       background-color: map-get($colors, button-bg);
       padding: 0.5rem 1rem;
       margin-bottom: 0.5rem;
+      margin-left: $scrollbar-width;
       border-radius: map-get($box, border-radius);
       width: 80%;
 

@@ -4,7 +4,7 @@
       <ChessBoard :on-square-click="onSquareClick" />
     </section>
     <section class="sidebar_container">
-      <SideBar :clicked-squares="clickedSquares" :onClear="onClear"/>
+      <SideBar :clicked-squares="clickedSquares" :on-clear="onClear" />
     </section>
   </section>
 </template>
