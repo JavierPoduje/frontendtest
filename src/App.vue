@@ -1,7 +1,10 @@
 <template>
   <section class="app_container">
     <section class="chessboard_container">
-      <ChessBoard :on-square-click="onSquareClick" />
+      <ChessBoard
+        :on-square-click="onSquareClick"
+        :last-square-clicked="lastSquareClicked"
+      />
     </section>
     <section class="sidebar_container">
       <SideBar :clicked-squares="clickedSquares" :on-clear="onClear" />
@@ -23,10 +26,12 @@
     data() {
       return {
         clickedSquares: [] as Square[],
+        lastSquareClicked: null as Square | null,
       };
     },
     methods: {
       onSquareClick(square: Square) {
+        this.lastSquareClicked = square;
         this.clickedSquares.push(square);
       },
       onClear() {

@@ -4,7 +4,10 @@
       <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__square">
         <div
           class="chessboard__square"
-          :class="squareColor(rowIdx, colIdx)"
+          :class="`${squareColor(rowIdx, colIdx)} ${highlightedSquare({
+            row,
+            col,
+          })}`"
           @click="onSquareClick({ row, col })"
         ></div>
       </div>
@@ -14,12 +17,17 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import { Square } from '../types';
 
   export default defineComponent({
     name: 'ChessBoard',
     props: {
       onSquareClick: {
         type: Function as (square: Square) => void,
+        required: true,
+      },
+      lastSquareClicked: {
+        type: Object as Square | null,
         required: true,
       },
     },
@@ -33,6 +41,15 @@
       squareColor(rowIdx: number, colIdx: number): string {
         const isLightsquare = (rowIdx + colIdx) % 2 === 0;
         return `chessboard__square--${isLightsquare ? 'light' : 'dark'}`;
+      },
+      highlightedSquare(square: Square): string {
+        if (
+          square?.row === this.lastSquareClicked?.row &&
+          square?.col === this.lastSquareClicked?.col
+        ) {
+          return 'chessboard__square--highlighted';
+        }
+        return '';
       },
     },
   });
@@ -70,6 +87,9 @@
       }
       &--dark {
         background-color: map-get($colors, dark-square);
+      }
+      &--highlighted {
+        background-color: map-get($colors, highlighted-square);
       }
 
       &:active {

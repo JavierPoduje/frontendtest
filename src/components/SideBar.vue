@@ -38,22 +38,25 @@
       },
     },
     computed: {
-      pairedSquares() {
-        return this.clickedSquares?.reduce((acc, square: Square) => {
-          if (!acc.length) {
-            return [[square]];
-          }
+      pairedSquares(): Square[][] {
+        return this.clickedSquares?.reduce(
+          (acc: Square[][], square: Square) => {
+            if (!acc.length) {
+              return [[square]];
+            }
 
-          const lastPair = acc[acc.length - 1];
+            const lastPair = acc[acc.length - 1];
 
-          if (lastPair.length < 2) {
-            lastPair.push(square);
-          } else {
-            acc.push([square]);
-          }
+            if (lastPair.length < 2) {
+              lastPair.push(square);
+            } else {
+              acc.push([square]);
+            }
 
-          return acc;
-        }, [] as Square[][]);
+            return acc;
+          },
+          [] as Square[][],
+        );
       },
     },
     methods: {
