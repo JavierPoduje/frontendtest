@@ -1,12 +1,17 @@
 <template>
-  <h1>Programming challenge</h1>
-  <div class="hola">hola</div>
+  <section class="chessboard_container">
+    <ChessBoard />
+  </section>
 </template>
 
 <script lang="ts">
+  import ChessBoard from './components/ChessBoard.vue';
+
   export default {
     name: 'App',
-    components: {},
+    components: {
+      ChessBoard,
+    },
     props: {},
     methods: {
       test(name: string) {
@@ -17,7 +22,8 @@
 </script>
 
 <style scoped lang="scss">
-  .hola {
-    border: 1px solid red;
+  .chessboard_container {
+    width: 712px;
+    height: 712px;
   }
 </style>

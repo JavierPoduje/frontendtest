@@ -18,3 +18,7 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 
 # Questions & Feedback
 Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback regarding this challenge.
+
+# Description
+
+TODO: ...
