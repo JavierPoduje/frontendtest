@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <section class="sidebar__rows">
+    <section ref="rows" class="sidebar__rows">
       <div
         v-for="(pair, pairIdx) in pairedSquares"
         :key="pairIdx"
@@ -62,6 +62,11 @@
           [] as Square[][],
         );
       },
+    },
+    updated() {
+      // scroll to the bottom of the sidebar if a square is clicked
+      const rows = this.$refs.rows as HTMLElement;
+      rows.scrollTop = rows.scrollHeight;
     },
     methods: {
       squareStr(square: Square): string {
