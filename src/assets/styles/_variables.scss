@@ -28,6 +28,14 @@ $box: (
   border-radius: 4px,
 );
 
-$board-size: min(75vh, 75vw);
+$breakpoints: (
+  xxl: 1400px,
+  xl: 1200px,
+  lg: 992px,
+  md: 768px,
+  sm: 576px,
+);
+
+$board-size: min(80vh, 80vw);
 $square-size: calc($board-size / 8);
-$scrollbar-width: 10px;
+$scrollbar-width: 0.5rem;

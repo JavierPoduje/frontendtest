@@ -4,10 +4,11 @@
       <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__square">
         <div
           class="chessboard__square"
-          :class="`${squareColor(rowIdx, colIdx)} ${highlightedSquare({
-            row,
-            col,
-          })} ${roundIfCornerSquare(rowIdx, colIdx)}`"
+          :class="`
+            ${squareColor(rowIdx, colIdx)}
+            ${highlightedSquare({ row, col })}
+            ${roundIfCornerSquare(rowIdx, colIdx)}
+          `"
           @click="onSquareClick({ row, col })"
         ></div>
       </div>

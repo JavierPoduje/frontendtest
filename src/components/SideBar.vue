@@ -5,16 +5,20 @@
         v-for="(pair, pairIdx) in pairedSquares"
         :key="pairIdx"
         class="sidebar__row"
-        :class="rowColor(pairIdx) + roundedBorder(pairIdx)"
+        :class="`${rowColor(pairIdx)} ${roundedBorder(pairIdx)}`"
       >
-        {{ pairIdx + 1 }}.
-        <span
+        <div
           v-for="(square, squareIdx) in pair"
           :key="squareIdx"
           class="sidebar__col"
         >
-          {{ squareStr(square) }}
-        </span>
+          <span v-if="squareIdx === 0" class="sidebar__row__numerator">
+            {{ pairIdx + 1 }}.
+          </span>
+          <span class="sidebar__row__square">
+            {{ squareStr(square) }}
+          </span>
+        </div>
       </div>
     </section>
     <button class="sidebar__button" @click="onClear">Clear squares</button>
@@ -77,24 +81,25 @@
   @import '../assets/styles/variables.scss';
 
   .sidebar {
-    width: calc($square-size * 3);
-    height: $board-size;
+    align-items: center;
     background-color: map-get($colors, bg2);
+    border-radius: map-get($box, border-radius);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     gap: 1rem;
-    border-radius: map-get($box, border-radius);
-    padding-right: $scrollbar-width;
+    height: $board-size;
+    justify-content: space-between;
+    padding: 0 $scrollbar-width;
+    width: calc($square-size * 3);
 
     &__rows {
       display: flex;
       flex-direction: column;
-      padding: 0.4rem;
+      padding: 0;
       width: 100%;
       overflow: hidden;
       overflow-y: auto;
+      margin-top: 0.5rem;
 
       &::-webkit-scrollbar {
         width: $scrollbar-width;
@@ -114,9 +119,15 @@
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
-      padding: 0 0.4rem;
       font-weight: bold;
-      color: map-get($colors, gray);
+
+      &__numerator {
+        color: map-get($colors, gray);
+        flex-grow: 1;
+      }
+      &__square {
+        flex-grow: 4;
+      }
 
       &--dark {
         background-color: #272423;
@@ -133,8 +144,7 @@
       color: map-get($colors, fg2);
       display: flex;
       justify-content: flex-start;
-      width: 50%;
-      padding: 0 1rem;
+      width: 40%;
     }
 
     &__button {
@@ -142,7 +152,6 @@
       background-color: map-get($colors, button-bg);
       padding: 0.5rem 1rem;
       margin-bottom: 0.5rem;
-      margin-left: $scrollbar-width;
       border-radius: map-get($box, border-radius);
       width: 80%;
 
