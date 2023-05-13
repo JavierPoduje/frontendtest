@@ -7,7 +7,7 @@
           :class="`${squareColor(rowIdx, colIdx)} ${highlightedSquare({
             row,
             col,
-          })}`"
+          })} ${roundIfCornerSquare(rowIdx, colIdx)}`"
           @click="onSquareClick({ row, col })"
         ></div>
       </div>
@@ -51,6 +51,24 @@
         }
         return '';
       },
+      roundIfCornerSquare(rowIdx: number, colIdx: number): string {
+        const isLeftColumn = colIdx === 0;
+        const isRightColumn = colIdx === this.cols.length - 1;
+        const isTopRow = rowIdx === 0;
+        const isBottomRow = rowIdx === this.rows.length - 1;
+
+        if (isLeftColumn && isTopRow) {
+          return 'chessboard__square--top_left';
+        } else if (isRightColumn && isTopRow) {
+          return 'chessboard__square--top_right';
+        } else if (isRightColumn && isBottomRow) {
+          return 'chessboard__square--bottom_right';
+        } else if (isLeftColumn && isBottomRow) {
+          return 'chessboard__square--bottom_left';
+        }
+
+        return '';
+      },
     },
   });
 </script>
@@ -85,6 +103,18 @@
       }
       &--highlighted {
         background-color: map-get($colors, highlighted-square);
+      }
+      &--top_left {
+        border-top-left-radius: map-get($box, border-radius);
+      }
+      &--top_right {
+        border-top-right-radius: map-get($box, border-radius);
+      }
+      &--bottom_right {
+        border-bottom-right-radius: map-get($box, border-radius);
+      }
+      &--bottom_left {
+        border-bottom-left-radius: map-get($box, border-radius);
       }
 
       &:active {
