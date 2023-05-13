@@ -1,8 +1,10 @@
 $colors: (
   bg: #312e2b,
+  bg2: rgba(0, 0, 0, 0.2),
   fg: #ffffff,
 
-  light-cell: #efefd2,
-  dark-cell: #769757,
+  //squares
+  light-square: #efefd2,
+  dark-square: #769757,
+  active-square: #fff,
 );
-

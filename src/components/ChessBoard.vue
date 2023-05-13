@@ -3,9 +3,9 @@
     <div v-for="(row, rowIdx) in rows" :key="row" class="chessboard__row">
       <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__col">
         <div
-          class="chessboard__cell"
-          :class="cellColor(rowIdx, colIdx)"
-          @click="onCellClick(row, col)"
+          class="chessboard__square"
+          :class="squareColor(rowIdx, colIdx)"
+          @click="onSquareClick({ row, col })"
         ></div>
       </div>
     </div>
@@ -13,8 +13,16 @@
 </template>
 
 <script lang="ts">
-  export default {
+  import { defineComponent } from 'vue';
+
+  export default defineComponent({
     name: 'ChessBoard',
+    props: {
+      onSquareClick: {
+        type: Function as (square: Square) => void,
+        required: true,
+      },
+    },
     data() {
       return {
         cols: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
@@ -22,25 +30,18 @@
       };
     },
     methods: {
-      cellColor(rowIdx: number, colIdx: number): string {
-        const isLightCell = (rowIdx + colIdx) % 2 === 0;
-        if (isLightCell) {
-          return 'chessboard__cell--light';
-        } else {
-          return 'chessboard__cell--dark';
-        }
-      },
-      onCellClick(row: string, col: number) {
-        console.log(col, row);
+      squareColor(rowIdx: number, colIdx: number): string {
+        const isLightsquare = (rowIdx + colIdx) % 2 === 0;
+        return `chessboard__square--${isLightsquare ? 'light' : 'dark'}`;
       },
     },
-  };
+  });
 </script>
 
 <style scoped lang="scss">
   @import '../assets/styles/variables.scss';
 
-  $cell-size: calc(100% / 8);
+  $square-size: calc(100% / 8);
 
   .chessboard {
     width: 100%;
@@ -50,28 +51,28 @@
 
     &__row {
       width: 100%;
-      height: $cell-size;
+      height: $square-size;
       display: flex;
     }
 
     &__col {
-      width: $cell-size;
+      width: $square-size;
       height: 100%;
     }
 
-    &__cell {
+    &__square {
       width: 100%;
       height: 100%;
 
       &--light {
-        background-color: map-get($colors, light-cell);
+        background-color: map-get($colors, light-square);
       }
       &--dark {
-        background-color: map-get($colors, dark-cell);
+        background-color: map-get($colors, dark-square);
       }
 
       &:active {
-        box-shadow: inset 0px 0px 0px 5px #fff;
+        box-shadow: inset 0px 0px 0px 5px map-get($colors, active-square);
       }
     }
   }
