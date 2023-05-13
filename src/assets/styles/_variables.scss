@@ -9,4 +9,16 @@ $colors: (
   light-square: #efefd2,
   dark-square: #769757,
   active-square: #fff,
+
+  // button
+  button-bg: #383633,
+  button-fg: #c9c6c6,
+  button-bg-hover: #4a4947,
+  button-fg-hover: #fffefe,
+  button-bg-active: #363533,
+  button-fg-active: #b8b6b7,
+);
+
+$box: (
+  border-radius: 4px,
 );

@@ -1,20 +1,23 @@
 <template>
   <aside class="sidebar">
-    <div
-      v-for="(pair, pairIdx) in pairedSquares"
-      :key="pairIdx"
-      class="sidebar__row"
-      :class="rowColor(pairIdx)"
-    >
-      {{ pairIdx + 1 }}.
-      <span
-        v-for="(square, squareIdx) in pair"
-        :key="squareIdx"
-        class="sidebar__col"
+    <section class="sidebar__rows">
+      <div
+        v-for="(pair, pairIdx) in pairedSquares"
+        :key="pairIdx"
+        class="sidebar__row"
+        :class="rowColor(pairIdx) + roundedBorder(pairIdx)"
       >
-        {{ squareStr(square) }}
-      </span>
-    </div>
+        {{ pairIdx + 1 }}.
+        <span
+          v-for="(square, squareIdx) in pair"
+          :key="squareIdx"
+          class="sidebar__col"
+        >
+          {{ squareStr(square) }}
+        </span>
+      </div>
+    </section>
+    <button class="sidebar__button" @click="onClear">Clear squares</button>
   </aside>
 </template>
 
@@ -27,6 +30,10 @@
     props: {
       clickedSquares: {
         type: Array as Square[],
+        required: true,
+      },
+      onClear: {
+        type: Function as () => void,
         required: true,
       },
     },
@@ -56,6 +63,9 @@
       rowColor(idx: number): string {
         return `sidebar__row--${idx % 2 === 0 ? 'dark' : 'light'}`;
       },
+      roundedBorder(idx: number): string {
+        return `sidebar__row--${idx === 0 ? 'rounded' : ''}`;
+      },
     },
   });
 </script>
@@ -69,6 +79,17 @@
     background-color: map-get($colors, bg2);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 4px;
+
+    &__rows {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+      width: 100%;
+    }
 
     &__row {
       display: flex;
@@ -82,9 +103,11 @@
       &--dark {
         background-color: #272423;
       }
-
       &--light {
         background-color: #2b2827;
+      }
+      &--rounded {
+        border-radius: map-get($box, border-radius);
       }
     }
 
@@ -94,6 +117,24 @@
       justify-content: flex-start;
       width: 50%;
       padding: 0 1rem;
+    }
+
+    &__button {
+      color: map-get($colors, button-fg);
+      background-color: map-get($colors, button-bg);
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: map-get($box, border-radius);
+      width: 80%;
+
+      &:hover {
+        background-color: map-get($colors, button-bg-hover);
+        color: map-get($colors, button-fg-hover);
+      }
+      &:active {
+        background-color: map-get($colors, button-bg-active);
+        color: map-get($colors, button-fg-active);
+      }
     }
   }
 </style>

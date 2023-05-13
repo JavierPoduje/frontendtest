@@ -4,7 +4,7 @@
       <ChessBoard :on-square-click="onSquareClick" />
     </section>
     <section class="sidebar_container">
-      <SideBar :clicked-squares="clickedSquares" />
+      <SideBar :clicked-squares="clickedSquares" :onClear="onClear"/>
     </section>
   </section>
 </template>
@@ -28,6 +28,9 @@
     methods: {
       onSquareClick(square: Square) {
         this.clickedSquares.push(square);
+      },
+      onClear() {
+        this.clickedSquares = [];
       },
     },
   };
