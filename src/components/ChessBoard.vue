@@ -1,7 +1,7 @@
 <template>
   <div class="chessboard">
     <div v-for="(row, rowIdx) in rows" :key="row" class="chessboard__row">
-      <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__col">
+      <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__square">
         <div
           class="chessboard__square"
           :class="squareColor(rowIdx, colIdx)"
@@ -44,20 +44,21 @@
   $square-size: calc(100% / 8);
 
   .chessboard {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
 
     &__row {
-      width: 100%;
-      height: $square-size;
       display: flex;
+      height: $square-size;
+      width: 100%;
     }
 
-    &__col {
-      width: $square-size;
+    &__square {
       height: 100%;
+      width: $square-size;
+      cursor: pointer;
     }
 
     &__square {
