@@ -76,24 +76,22 @@
 <style scoped lang="scss">
   @import '../assets/styles/variables.scss';
 
-  $scrollbar-width: 10px;
-
   .sidebar {
-    width: calc(712px / 3);
-    height: 712px;
+    width: calc($square-size * 3);
+    height: $board-size;
     background-color: map-get($colors, bg2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    border-radius: 4px;
+    border-radius: map-get($box, border-radius);
     padding-right: $scrollbar-width;
 
     &__rows {
       display: flex;
       flex-direction: column;
-      padding: 0.5rem;
+      padding: 0.4rem;
       width: 100%;
       overflow: hidden;
       overflow-y: auto;

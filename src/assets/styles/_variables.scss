@@ -27,3 +27,7 @@ $colors: (
 $box: (
   border-radius: 4px,
 );
+
+$board-size: min(75vh, 75vw);
+$square-size: calc($board-size / 8);
+$scrollbar-width: 10px;

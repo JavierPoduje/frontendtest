@@ -58,13 +58,11 @@
 <style scoped lang="scss">
   @import '../assets/styles/variables.scss';
 
-  $square-size: calc(100% / 8);
-
   .chessboard {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
+    height: $board-size;
+    width: $board-size;
 
     &__row {
       display: flex;
@@ -73,15 +71,12 @@
     }
 
     &__square {
-      height: 100%;
+      height: $square-size;
       width: $square-size;
       cursor: pointer;
     }
 
     &__square {
-      width: 100%;
-      height: 100%;
-
       &--light {
         background-color: map-get($colors, light-square);
       }

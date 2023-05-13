@@ -43,6 +43,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import './assets/styles/variables.scss';
+
   .app_container {
     display: flex;
     flex-direction: row;
@@ -54,12 +56,7 @@
   }
 
   .chessboard_container {
-    width: 712px;
-    height: 712px;
-  }
-
-  .chessboard_container {
-    width: 712px;
-    height: 712px;
+    width: $board-size;
+    height: $board-size;
   }
 </style>
