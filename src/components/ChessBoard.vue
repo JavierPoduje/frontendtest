@@ -17,25 +17,25 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { Square } from '../types';
+  import { defineComponent, PropType } from 'vue';
+  import { Square, Row, Col } from '../types';
 
   export default defineComponent({
     name: 'ChessBoard',
     props: {
       onSquareClick: {
-        type: Function as (square: Square) => void,
+        type: Function as PropType<(square: Square) => void>,
         required: true,
       },
       lastSquareClicked: {
-        type: Object as Square | null,
+        type: Object as PropType<Square | null>,
         required: true,
       },
     },
     data() {
       return {
-        cols: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
-        rows: [8, 7, 6, 5, 4, 3, 2, 1],
+        cols: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as Col[],
+        rows: [8, 7, 6, 5, 4, 3, 2, 1] as Row[],
       };
     },
     methods: {

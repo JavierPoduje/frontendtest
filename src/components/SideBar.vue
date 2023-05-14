@@ -26,18 +26,18 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue';
+  import { defineComponent, PropType } from 'vue';
   import { Square } from '../types';
 
   export default defineComponent({
     name: 'SideBar',
     props: {
       clickedSquares: {
-        type: Array as Square[],
+        type: Array as PropType<Square[]>,
         required: true,
       },
       onClear: {
-        type: Function as () => void,
+        type: Function as PropType<() => void>,
         required: true,
       },
     },
