@@ -109,7 +109,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/styles/variables.scss';
+  @import '../styles/variables.scss';
 
   .chessboard {
     display: grid;

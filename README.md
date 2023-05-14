@@ -27,6 +27,25 @@ Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback rega
 - [npm](https://www.npmjs.com/): v9.6.1
 - [nvm](https://github.com/nvm-sh/nvm) (optional)
 
+## Directory structure
+
+```
+.
+├── cypress                         # Cypress tests
+│   ├── e2e                         # End-to-end tests
+│   │   ├── 1-chessboard            # Chessboard tests
+│   │   └── 2-sidebar               # Sidebar tests
+│   └── support                     # Cypress configuration and utilities
+├── dist                            # Distributable version of the app
+└── src                             # Source code
+    ├── assets                      # Static assets used by the app
+    │   ├── images                  # Image files
+    ├── styles                      # Sass files defining app styles
+    │   ├── _variables.scss         # Variables used across the app styles
+    │   └── index.scss              # Main Sass file importing app styles
+    └── components                  # Reusable Vue components used across the app
+```
+
 ## Initial setup
 
 1. Install and set the right Node.js version if you're using other one:
