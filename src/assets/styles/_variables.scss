@@ -42,18 +42,18 @@ $breakpoints: (
 );
 
 $board: (
-  xxl: min(80vh, 80vw),
+  xxl: min(85vh, 85vw),
   xl: min(72vh, 72vw),
   lg: min(64vh, 64vw),
-  md: min(80vh, 80vw),
+  md: min(75vh, 75vw),
   sm: min(95vh, 95vw),
 );
 
 $square: (
-  xxl: calc(min(80vh, 80vw) / 8),
+  xxl: calc(min(85vh, 85vw) / 8),
   xl: calc(min(72vh, 72vw) / 8),
   lg: calc(min(64vh, 64vw) / 8),
-  md: calc(min(80vh, 80vw) / 8),
+  md: calc(min(75vh, 75vw) / 8),
   sm: calc(min(95vh, 95vw) / 8),
 );
 

@@ -131,7 +131,6 @@
       flex-direction: column;
       margin-top: 0.5rem;
       overflow-y: scroll;
-      overflow: hidden;
       padding: 0;
       width: 100%;
 
@@ -237,7 +236,7 @@
       width: map-get($board, sm);
       padding: 0;
       &__button {
-        width: calc(calc(map-get($square, sm) * 3) * 0.8);
+        width: calc(map-get($board, md) * 0.9);
       }
     }
   }
