@@ -25,15 +25,32 @@
     },
     data() {
       return {
+        /**
+         * The squares that have been clicked on the chessboard.
+         */
         clickedSquares: [] as Square[],
+        /**
+         * The last square that was clicked on the chessboard.
+         */
         lastSquareClicked: null as Square | null,
       };
     },
     methods: {
+      /**
+       * Handle a square being clicked on the chessboard.
+       *
+       * @param {Square} square - The square that was clicked.
+       * @returns void
+       */
       onSquareClick(square: Square) {
         this.lastSquareClicked = square;
         this.clickedSquares.push(square);
       },
+      /**
+       * Handle a square being clicked on the chessboard.
+       *
+       * @returns void
+       */
       onClear() {
         this.lastSquareClicked = null;
         this.clickedSquares = [];
@@ -46,31 +63,31 @@
   @import './assets/styles/variables.scss';
 
   .app_container {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
-    width: 100%;
     height: 100%;
+    justify-content: center;
+    width: 100%;
   }
 
   .chessboard_container {
-    width: map-get($board, xxl);
     height: map-get($board, xxl);
+    width: map-get($board, xxl);
   }
 
   @media (max-width: map-get($breakpoints, xl)) {
     .chessboard_container {
-      width: map-get($board, xl);
       height: map-get($board, xl);
+      width: map-get($board, xl);
     }
   }
 
   @media (max-width: map-get($breakpoints, lg)) {
     .chessboard_container {
-      width: map-get($board, lg);
       height: map-get($board, lg);
+      width: map-get($board, lg);
     }
   }
 
@@ -80,8 +97,8 @@
     }
 
     .chessboard_container {
-      width: map-get($board, md);
       height: map-get($board, md);
+      width: map-get($board, md);
     }
   }
 
@@ -91,8 +108,8 @@
     }
 
     .chessboard_container {
-      width: map-get($board, sm);
       height: map-get($board, sm);
+      width: map-get($board, sm);
     }
   }
 </style>

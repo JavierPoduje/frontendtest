@@ -1,11 +1,12 @@
 $colors: (
+  // common
   bg: #312e2b,
   bg2: rgba(0, 0, 0, 0.2),
   fg: #ffffff,
   fg2: hsla(0, 0%, 100%, 0.72),
   gray: #ffffff80,
 
-  //squares
+  // squares
   light-square: #efefd2,
   dark-square: #769757,
   active-square: #fff,
@@ -39,9 +40,6 @@ $breakpoints: (
   md: 768px,
   sm: 576px,
 );
-
-$board-size: min(80vh, 80vw);
-$square-size: calc($board-size / 8);
 
 $board: (
   xxl: min(80vh, 80vw),

@@ -23,10 +23,16 @@
   export default defineComponent({
     name: 'ChessBoard',
     props: {
+      /**
+       * The function to call when a square is clicked.
+       */
       onSquareClick: {
         type: Function as PropType<(square: Square) => void>,
         required: true,
       },
+      /**
+       * The last square that was clicked. Null if no square has been clicked.
+       */
       lastSquareClicked: {
         type: Object as PropType<Square | null>,
         required: true,
@@ -39,10 +45,25 @@
       };
     },
     methods: {
+      /**
+       * Given the row index and the column index of a square, return the
+       * class that will color it appropriately.
+       *
+       * @param {number} rowIdx - The row index of the square
+       * @param {number} colIdx - The column index of the square
+       * @returns {string} The class to color the square.
+       */
       squareColor(rowIdx: number, colIdx: number): string {
         const isLightsquare = (rowIdx + colIdx) % 2 === 0;
         return `chessboard__square--${isLightsquare ? 'light' : 'dark'}`;
       },
+      /**
+       * Given a square, return the appropriate class to highlight if it's the
+       * last square clicked.
+       *
+       * @param {Square} square - The square to evaluate.
+       * @returns {string} The appropriate class to highlight the square.
+       */
       highlightedSquare(square: Square): string {
         if (
           square?.row === this.lastSquareClicked?.row &&
@@ -52,6 +73,14 @@
         }
         return '';
       },
+      /**
+       * Given the row index and column index of a square, return the
+       * appropriate class to round its border if it's a corner square.
+       *
+       * @param {number} rowIdx - The row index of the square
+       * @param {number} colIdx - The column index of the square
+       * @returns {string} The appropriate class to round the border of the square
+       */
       roundIfCornerSquare(rowIdx: number, colIdx: number): string {
         const isLeftColumn = colIdx === 0;
         const isRightColumn = colIdx === this.cols.length - 1;
@@ -90,9 +119,9 @@
     }
 
     &__square {
+      cursor: pointer;
       height: map-get($square, xxl);
       width: map-get($square, xxl);
-      cursor: pointer;
     }
 
     &__square {
@@ -126,8 +155,8 @@
 
   @media (max-width: map-get($breakpoints, xl)) {
     .chessboard {
-      width: map-get($board, xl);
       height: map-get($board, xl);
+      width: map-get($board, xl);
       &__row {
         height: map-get($square, xl);
       }
@@ -154,8 +183,8 @@
 
   @media (max-width: map-get($breakpoints, md)) {
     .chessboard {
-      width: map-get($board, md);
       height: map-get($board, md);
+      width: map-get($board, md);
       &__row {
         height: map-get($square, md);
       }
@@ -168,8 +197,8 @@
 
   @media (max-width: map-get($breakpoints, sm)) {
     .chessboard {
-      width: map-get($board, sm);
       height: map-get($board, sm);
+      width: map-get($board, sm);
       &__row {
         height: map-get($square, sm);
       }

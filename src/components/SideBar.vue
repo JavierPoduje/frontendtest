@@ -32,16 +32,27 @@
   export default defineComponent({
     name: 'SideBar',
     props: {
+      /**
+       * The squares that have been clicked on the chessboard.
+       */
       clickedSquares: {
         type: Array as PropType<Square[]>,
         required: true,
       },
+      /**
+       * The function to call when the clear button is clicked.
+       */
       onClear: {
         type: Function as PropType<() => void>,
         required: true,
       },
     },
     computed: {
+      /**
+       * Given the clicked squares, return them in pairs.
+       *
+       * @returns {Square[][]} The clicked squares in pairs.
+       */
       pairedSquares(): Square[][] {
         return this.clickedSquares?.reduce(
           (acc: Square[][], square: Square) => {
@@ -64,17 +75,35 @@
       },
     },
     updated() {
-      // scroll to the bottom of the sidebar if a square is clicked
+      // Scroll to the bottom of the sidebar if a square is clicked
       const rows = this.$refs.rows as HTMLElement;
       rows.scrollTop = rows.scrollHeight;
     },
     methods: {
+      /**
+       * Given a square, return the string representation of it.
+       *
+       * @params {Square} square - The square to evaluate.
+       * @returns {string} The string representation of the square.
+       */
       squareStr(square: Square): string {
         return `${square.col}${square.row}`;
       },
+      /**
+       * Given the index of a row, return the class that will color it.
+       *
+       * @param {number} idx - The index of the row.
+       * @returns {string} The class that will color the row.
+       */
       rowColor(idx: number): string {
         return `sidebar__row--${idx % 2 === 0 ? 'dark' : 'light'}`;
       },
+      /**
+       * Given the index of a row, return the class that will round its border.
+       *
+       * @param {number} idx - The index of the row.
+       * @returns {string} The class that will round the row's border.
+       */
       roundedBorder(idx: number): string {
         return `sidebar__row--${idx === 0 ? 'rounded' : ''}`;
       },
@@ -92,19 +121,19 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: map-get($board, xxl);
     justify-content: space-between;
     padding: 0 $scrollbar-width;
-    height: map-get($board, xxl);
     width: calc(map-get($square, xxl) * 3);
 
     &__rows {
       display: flex;
       flex-direction: column;
+      margin-top: 0.5rem;
+      overflow-y: scroll;
+      overflow: hidden;
       padding: 0;
       width: 100%;
-      overflow: hidden;
-      overflow-y: scroll;
-      margin-top: 0.5rem;
 
       &::-webkit-scrollbar {
         width: $scrollbar-width;
@@ -120,11 +149,11 @@
     }
 
     &__row {
+      align-items: center;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
       font-weight: bold;
+      justify-content: flex-start;
 
       &__numerator {
         color: map-get($colors, gray);
