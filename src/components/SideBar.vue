@@ -21,13 +21,7 @@
         </div>
       </div>
     </section>
-    <button
-      class="sidebar__button"
-      data-test="sidebar__button"
-      @click="onClear"
-    >
-      Clear
-    </button>
+    <button class="sidebar__button" @click="onClear">Clear</button>
   </aside>
 </template>
 
