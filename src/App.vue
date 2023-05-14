@@ -53,8 +53,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 1rem;
     align-items: center;
+    gap: 1rem;
     width: 100%;
     height: 100%;
   }
@@ -64,17 +64,10 @@
     height: map-get($board, xxl);
   }
 
-  @media (max-width: map-get($breakpoints, sm)) {
+  @media (max-width: map-get($breakpoints, xl)) {
     .chessboard_container {
-      width: map-get($board, sm);
-      height: map-get($board, sm);
-    }
-  }
-
-  @media (max-width: map-get($breakpoints, md)) {
-    .chessboard_container {
-      width: map-get($board, md);
-      height: map-get($board, md);
+      width: map-get($board, xl);
+      height: map-get($board, xl);
     }
   }
 
@@ -85,10 +78,25 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, xl)) {
+  @media (max-width: map-get($breakpoints, md)) {
+    .app_container {
+      flex-direction: column;
+    }
+
     .chessboard_container {
-      width: map-get($board, xl);
-      height: map-get($board, xl);
+      width: map-get($board, md);
+      height: map-get($board, md);
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .app_container {
+      flex-direction: column;
+    }
+
+    .chessboard_container {
+      width: map-get($board, sm);
+      height: map-get($board, sm);
     }
   }
 </style>

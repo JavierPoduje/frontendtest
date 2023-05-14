@@ -171,22 +171,12 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, sm)) {
+  @media (max-width: map-get($breakpoints, xl)) {
     .sidebar {
-      width: calc(map-get($square, sm) * 3);
-      height: map-get($board, sm);
+      width: calc(map-get($square, xl) * 3);
+      height: map-get($board, xl);
       &__button {
-        width: calc(calc(map-get($square, sm) * 3) * 0.8);
-      }
-    }
-  }
-
-  @media (max-width: map-get($breakpoints, md)) {
-    .sidebar {
-      width: calc(map-get($square, md) * 3);
-      height: map-get($board, md);
-      &__button {
-        width: calc(calc(map-get($square, md) * 3) * 0.8);
+        width: calc(calc(map-get($square, xl) * 3) * 0.8);
       }
     }
   }
@@ -201,12 +191,24 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, xl)) {
+  @media (max-width: map-get($breakpoints, md)) {
     .sidebar {
-      width: calc(map-get($square, xl) * 3);
-      height: map-get($board, xl);
+      height: calc(map-get($square, md) * 3);
+      width: map-get($board, md);
+      padding: 0;
       &__button {
-        width: calc(calc(map-get($square, xl) * 3) * 0.8);
+        width: calc(map-get($board, md) * 0.9);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .sidebar {
+      height: calc(map-get($square, sm) * 3);
+      width: map-get($board, sm);
+      padding: 0;
+      &__button {
+        width: calc(calc(map-get($square, sm) * 3) * 0.8);
       }
     }
   }

@@ -124,30 +124,16 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, sm)) {
+  @media (max-width: map-get($breakpoints, xl)) {
     .chessboard {
-      width: map-get($board, sm);
-      height: map-get($board, sm);
+      width: map-get($board, xl);
+      height: map-get($board, xl);
       &__row {
-        height: map-get($square, sm);
+        height: map-get($square, xl);
       }
       &__square {
-        height: map-get($square, sm);
-        width: map-get($square, sm);
-      }
-    }
-  }
-
-  @media (max-width: map-get($breakpoints, md)) {
-    .chessboard {
-      width: map-get($board, md);
-      height: map-get($board, md);
-      &__row {
-        height: map-get($square, md);
-      }
-      &__square {
-        height: map-get($square, md);
-        width: map-get($square, md);
+        height: map-get($square, xl);
+        width: map-get($square, xl);
       }
     }
   }
@@ -166,16 +152,30 @@
     }
   }
 
-  @media (max-width: map-get($breakpoints, xl)) {
+  @media (max-width: map-get($breakpoints, md)) {
     .chessboard {
-      width: map-get($board, xl);
-      height: map-get($board, xl);
+      width: map-get($board, md);
+      height: map-get($board, md);
       &__row {
-        height: map-get($square, xl);
+        height: map-get($square, md);
       }
       &__square {
-        height: map-get($square, xl);
-        width: map-get($square, xl);
+        height: map-get($square, md);
+        width: map-get($square, md);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .chessboard {
+      width: map-get($board, sm);
+      height: map-get($board, sm);
+      &__row {
+        height: map-get($square, sm);
+      }
+      &__square {
+        height: map-get($square, sm);
+        width: map-get($square, sm);
       }
     }
   }
