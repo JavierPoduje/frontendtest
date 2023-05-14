@@ -193,7 +193,7 @@
 
   @media (max-width: map-get($breakpoints, md)) {
     .sidebar {
-      height: calc(map-get($square, md) * 6);
+      height: calc(map-get($square, md) * 5);
       width: map-get($board, md);
       padding: 0;
       &__button {
@@ -204,7 +204,7 @@
 
   @media (max-width: map-get($breakpoints, sm)) {
     .sidebar {
-      height: calc(map-get($square, sm) * 6);
+      height: calc(map-get($square, sm) * 5);
       width: map-get($board, sm);
       padding: 0;
       &__button {
