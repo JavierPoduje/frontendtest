@@ -1,14 +1,19 @@
 <template>
-  <div class="chessboard">
-    <div v-for="(col, colIdx) in cols" :key="col">
+  <div class="chessboard" data-test="chessboard">
+    <div
+      v-for="(col, colIdx) in cols"
+      :key="col"
+      data-test="chessboard__column"
+    >
       <div v-for="(row, rowIdx) in rows" :key="row">
         <div
           class="chessboard__square"
-          :class="`
-            ${squareColor(rowIdx, colIdx)}
-            ${highlightedSquare({ row, col })}
-            ${roundIfCornerSquare(rowIdx, colIdx)}
-          `"
+          :class="`${[
+            squareColor(rowIdx, colIdx),
+            highlightedSquare({ row, col }),
+            roundIfCornerSquare(rowIdx, colIdx),
+          ].join(' ')}`"
+          :data-test="`chessboard__square--${col}${row}`"
           @click="onSquareClick({ row, col })"
         ></div>
       </div>

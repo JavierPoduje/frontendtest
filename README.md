@@ -44,3 +44,5 @@ $ npm install
 ```sh
 $ npm run dev
 ```
+
+4. Access the application at `http://localhost:5173/` in your browser.
