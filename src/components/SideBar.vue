@@ -92,10 +92,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: $board-size;
     justify-content: space-between;
     padding: 0 $scrollbar-width;
-    width: calc($square-size * 3);
+    height: map-get($board, xxl);
+    width: calc(map-get($square, xxl) * 3);
 
     &__rows {
       display: flex;
@@ -153,11 +153,11 @@
     }
 
     &__button {
-      color: map-get($colors, button-fg);
       background-color: map-get($colors, button-bg);
-      padding: 0.5rem 1rem;
-      margin-bottom: 0.5rem;
       border-radius: map-get($box, border-radius);
+      color: map-get($colors, button-fg);
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
       width: 80%;
 
       &:hover {
@@ -167,6 +167,46 @@
       &:active {
         background-color: map-get($colors, button-bg-active);
         color: map-get($colors, button-fg-active);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .sidebar {
+      width: calc(map-get($square, sm) * 3);
+      height: map-get($board, sm);
+      &__button {
+        width: calc(calc(map-get($square, sm) * 3) * 0.8);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, md)) {
+    .sidebar {
+      width: calc(map-get($square, md) * 3);
+      height: map-get($board, md);
+      &__button {
+        width: calc(calc(map-get($square, md) * 3) * 0.8);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, lg)) {
+    .sidebar {
+      width: calc(map-get($square, lg) * 3);
+      height: map-get($board, lg);
+      &__button {
+        width: calc(calc(map-get($square, lg) * 3) * 0.8);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, xl)) {
+    .sidebar {
+      width: calc(map-get($square, xl) * 3);
+      height: map-get($board, xl);
+      &__button {
+        width: calc(calc(map-get($square, xl) * 3) * 0.8);
       }
     }
   }

@@ -52,7 +52,7 @@
   .app_container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     align-items: center;
     width: 100%;
@@ -60,7 +60,35 @@
   }
 
   .chessboard_container {
-    width: $board-size;
-    height: $board-size;
+    width: map-get($board, xxl);
+    height: map-get($board, xxl);
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .chessboard_container {
+      width: map-get($board, sm);
+      height: map-get($board, sm);
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, md)) {
+    .chessboard_container {
+      width: map-get($board, md);
+      height: map-get($board, md);
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, lg)) {
+    .chessboard_container {
+      width: map-get($board, lg);
+      height: map-get($board, lg);
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, xl)) {
+    .chessboard_container {
+      width: map-get($board, xl);
+      height: map-get($board, xl);
+    }
   }
 </style>

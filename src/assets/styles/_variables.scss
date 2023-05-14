@@ -38,4 +38,21 @@ $breakpoints: (
 
 $board-size: min(80vh, 80vw);
 $square-size: calc($board-size / 8);
+
+$board: (
+  xxl: min(80vh, 80vw),
+  xl: min(60vh, 60vw),
+  lg: min(50vh, 50vw),
+  md: min(40vh, 40vw),
+  sm: min(30vh, 30vw),
+);
+
+$square: (
+  xxl: calc(min(80vh, 80vw) / 8),
+  xl: calc(min(60vh, 60vw) / 8),
+  lg: calc(min(50vh, 50vw) / 8),
+  md: calc(min(40vh, 40vw) / 8),
+  sm: calc(min(30vh, 30vw) / 8),
+);
+
 $scrollbar-width: 0.5rem;

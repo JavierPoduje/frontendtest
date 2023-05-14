@@ -80,18 +80,18 @@
   .chessboard {
     display: flex;
     flex-direction: column;
-    height: $board-size;
-    width: $board-size;
+    height: map-get($board, xxl);
+    width: map-get($board, xxl);
 
     &__row {
       display: flex;
-      height: $square-size;
+      height: map-get($square, xxl);
       width: 100%;
     }
 
     &__square {
-      height: $square-size;
-      width: $square-size;
+      height: map-get($square, xxl);
+      width: map-get($square, xxl);
       cursor: pointer;
     }
 
@@ -120,6 +120,62 @@
 
       &:active {
         box-shadow: inset 0px 0px 0px 5px map-get($colors, active-square);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    .chessboard {
+      width: map-get($board, sm);
+      height: map-get($board, sm);
+      &__row {
+        height: map-get($square, sm);
+      }
+      &__square {
+        height: map-get($square, sm);
+        width: map-get($square, sm);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, md)) {
+    .chessboard {
+      width: map-get($board, md);
+      height: map-get($board, md);
+      &__row {
+        height: map-get($square, md);
+      }
+      &__square {
+        height: map-get($square, md);
+        width: map-get($square, md);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, lg)) {
+    .chessboard {
+      width: map-get($board, lg);
+      height: map-get($board, lg);
+      &__row {
+        height: map-get($square, lg);
+      }
+      &__square {
+        height: map-get($square, lg);
+        width: map-get($square, lg);
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, xl)) {
+    .chessboard {
+      width: map-get($board, xl);
+      height: map-get($board, xl);
+      &__row {
+        height: map-get($square, xl);
+      }
+      &__square {
+        height: map-get($square, xl);
+        width: map-get($square, xl);
       }
     }
   }
