@@ -1,7 +1,7 @@
 <template>
   <div class="chessboard">
-    <div v-for="(row, rowIdx) in rows" :key="row" class="chessboard__row">
-      <div v-for="(col, colIdx) in cols" :key="col" class="chessboard__square">
+    <div v-for="(col, colIdx) in cols" :key="col">
+      <div v-for="(row, rowIdx) in rows" :key="row">
         <div
           class="chessboard__square"
           :class="`
@@ -107,21 +107,15 @@
   @import '../assets/styles/variables.scss';
 
   .chessboard {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     height: map-get($board, xxl);
     width: map-get($board, xxl);
-
-    &__row {
-      display: flex;
-      height: map-get($square, xxl);
-      width: 100%;
-    }
 
     &__square {
       cursor: pointer;
       height: map-get($square, xxl);
-      width: map-get($square, xxl);
     }
 
     &__square {
@@ -157,12 +151,8 @@
     .chessboard {
       height: map-get($board, xl);
       width: map-get($board, xl);
-      &__row {
-        height: map-get($square, xl);
-      }
       &__square {
         height: map-get($square, xl);
-        width: map-get($square, xl);
       }
     }
   }
@@ -171,12 +161,8 @@
     .chessboard {
       width: map-get($board, lg);
       height: map-get($board, lg);
-      &__row {
-        height: map-get($square, lg);
-      }
       &__square {
         height: map-get($square, lg);
-        width: map-get($square, lg);
       }
     }
   }
@@ -185,12 +171,8 @@
     .chessboard {
       height: map-get($board, md);
       width: map-get($board, md);
-      &__row {
-        height: map-get($square, md);
-      }
       &__square {
         height: map-get($square, md);
-        width: map-get($square, md);
       }
     }
   }
@@ -199,12 +181,8 @@
     .chessboard {
       height: map-get($board, sm);
       width: map-get($board, sm);
-      &__row {
-        height: map-get($square, sm);
-      }
       &__square {
         height: map-get($square, sm);
-        width: map-get($square, sm);
       }
     }
   }
