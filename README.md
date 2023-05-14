@@ -21,4 +21,26 @@ Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback rega
 
 # Description
 
-TODO: ...
+## Dependencies
+
+- [Node.js](https://nodejs.org/es): v18.13.0
+- [npm](https://www.npmjs.com/): v9.6.1
+- [nvm](https://github.com/nvm-sh/nvm) (optional)
+
+## Initial setup
+
+1. Install and set the right Node.js version if you're using other one:
+```sh
+$ nvm install v18.13.0
+$ nvm use v18.13.0
+```
+
+2. Install the `node_modules`:
+```sh
+$ npm install
+```
+
+3. Run locally:
+```sh
+$ npm run dev
+```
