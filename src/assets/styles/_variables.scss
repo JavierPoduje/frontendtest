@@ -9,7 +9,7 @@ $colors: (
   light-square: #efefd2,
   dark-square: #769757,
   active-square: #fff,
-  highlighted-square: #cc9122,
+  highlighted-square: #cb9f4f,
 
   // button
   button-bg: #383633,
@@ -22,6 +22,10 @@ $colors: (
   // scrollbar
   scrollbar-thumb: #141412,
   scrollbar-track: #272423,
+
+  // sidebar
+  sidebar-light-row: #2b2827,
+  sidebar-dark-row: #272423,
 );
 
 $box: (

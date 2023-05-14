@@ -21,7 +21,7 @@
         </div>
       </div>
     </section>
-    <button class="sidebar__button" @click="onClear">Clear squares</button>
+    <button class="sidebar__button" @click="onClear">Clear</button>
   </aside>
 </template>
 
@@ -103,7 +103,7 @@
       padding: 0;
       width: 100%;
       overflow: hidden;
-      overflow-y: auto;
+      overflow-y: scroll;
       margin-top: 0.5rem;
 
       &::-webkit-scrollbar {
@@ -135,10 +135,10 @@
       }
 
       &--dark {
-        background-color: #272423;
+        background-color: map-get($colors, sidebar-dark-row);
       }
       &--light {
-        background-color: #2b2827;
+        background-color: map-get($colors, sidebar-light-row);
       }
       &--rounded {
         border-radius: map-get($box, border-radius);
@@ -193,7 +193,7 @@
 
   @media (max-width: map-get($breakpoints, md)) {
     .sidebar {
-      height: calc(map-get($square, md) * 3);
+      height: calc(map-get($square, md) * 6);
       width: map-get($board, md);
       padding: 0;
       &__button {
@@ -204,7 +204,7 @@
 
   @media (max-width: map-get($breakpoints, sm)) {
     .sidebar {
-      height: calc(map-get($square, sm) * 3);
+      height: calc(map-get($square, sm) * 6);
       width: map-get($board, sm);
       padding: 0;
       &__button {

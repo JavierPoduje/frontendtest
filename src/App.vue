@@ -15,8 +15,6 @@
 <script lang="ts">
   import ChessBoard from './components/ChessBoard.vue';
   import SideBar from './components/SideBar.vue';
-  // import clickedSquares from './clickedSquares.ts';
-  // import fewerClickedSquares from './fewerClickedSquares.ts';
   import { Square } from './types';
 
   export default {
@@ -27,8 +25,6 @@
     },
     data() {
       return {
-        // clickedSquares: clickedSquares as Square[],
-        // clickedSquares: fewerClickedSquares as Square[],
         clickedSquares: [] as Square[],
         lastSquareClicked: null as Square | null,
       };
