@@ -23,7 +23,7 @@ Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback rega
 
 # Description
 
-I have implemented a solution for the Chess.com front end programming challenge using VueJS. Besides VueJS, the project utilizes the following technologies:
+Solution for the Chess.com front end programming challenge. Besides VueJS, the project utilizes the following technologies:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Cypress](https://www.cypress.io/)
@@ -33,9 +33,17 @@ I have implemented a solution for the Chess.com front end programming challenge 
 - [ESLint](https://sass-lang.com/)
 - [Prettier](https://prettier.io/)
 
-Despite the simplicity of the problem, I aimed to give the project a well-structured and maintainable codebase. To achieve this, I separated the `ChessBoard` and `Sidebar` components into their own files, and utilized SCSS variables to keep the styling organized. The project follows the best practices and guidelines set by [ESLint and VueJS](https://eslint.vuejs.org/rules/) and [Prettier](https://github.com/vuejs/eslint-config-prettier) for code quality and consistency.
+Despite the simplicity of the problem, I aimed to give the project a well-structured and maintainable codebase. To achieve this, I separated the `ChessBoard` and `Sidebar` components into their own files, and utilized SCSS variables to keep the styling organized.
 
 A live version of the solution can be accessed [here](https://frontendtest-psi.vercel.app/).
+
+## Coding Conventions
+
+The project adheres to the following coding conventions and best practices:
+
+- **ESLint and Vue.js**: Linting rules provided by ESLint and the official Vue.js style guide. See [ESLint Vue.js rules](https://eslint.vuejs.org/rules/) for more details.
+- **Prettier**: Recommended Prettier configuration for Vue.js projects. See [Prettier Vue Configuration](https://github.com/vuejs/eslint-config-prettier#prettier-config-for-vue) for more details.
+- **BEM (Block Element Modifier)**: BEM methodology for CSS styling. See [getbem.com](https://getbem.com/) for more details.
 
 ## Dependencies
 
