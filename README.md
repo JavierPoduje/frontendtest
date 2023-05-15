@@ -19,7 +19,23 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 # Questions & Feedback
 Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback regarding this challenge.
 
+---
+
 # Description
+
+I have implemented a solution for the Chess.com front end programming challenge using VueJS. Besides VueJS, the project utilizes the following technologies:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Cypress](https://www.cypress.io/)
+- [Vercel](https://vercel.com/)
+- [Vite](https://vitejs.dev/)
+- [Sass](https://sass-lang.com/)
+- [ESLint](https://sass-lang.com/)
+- [Prettier](https://prettier.io/)
+
+Despite the simplicity of the problem, I aimed to give the project a well-structured and maintainable codebase. To achieve this, I separated the `ChessBoard` and `Sidebar` components into their own files, and utilized SCSS variables to keep the styling organized. The project follows the best practices and guidelines set by [ESLint and VueJS](https://eslint.vuejs.org/rules/) and [Prettier](https://github.com/vuejs/eslint-config-prettier) for code quality and consistency.
+
+A live version of the solution can be accessed [here](https://frontendtest-psi.vercel.app/).
 
 ## Dependencies
 
@@ -54,7 +70,7 @@ $ nvm install v18.13.0
 $ nvm use v18.13.0
 ```
 
-2. Install the `node_modules`:
+2. Install the project dependencies:
 ```sh
 $ npm install
 ```
@@ -64,4 +80,9 @@ $ npm install
 $ npm run dev
 ```
 
-4. Access the application at `http://localhost:5173/` in your browser.
+4. Run tests:
+```sh
+$ npm run test
+```
+
+5. Access the application at `http://localhost:5173/` in your browser.
