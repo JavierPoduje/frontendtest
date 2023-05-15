@@ -129,7 +129,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: map-get($box, margin);
     width: $board-container-size;
   }
 
@@ -170,16 +169,16 @@
         background-color: map-get($colors, highlighted-square);
       }
       &--top_left {
-        border-top-left-radius: map-get($box, border-radius);
+        border-top-left-radius: $border-radius;
       }
       &--top_right {
-        border-top-right-radius: map-get($box, border-radius);
+        border-top-right-radius: $border-radius;
       }
       &--bottom_right {
-        border-bottom-right-radius: map-get($box, border-radius);
+        border-bottom-right-radius: $border-radius;
       }
       &--bottom_left {
-        border-bottom-left-radius: map-get($box, border-radius);
+        border-bottom-left-radius: $border-radius;
       }
 
       &:active {

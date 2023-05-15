@@ -121,7 +121,7 @@
   .sidebar {
     align-items: center;
     background-color: map-get($colors, bg2);
-    border-radius: map-get($box, border-radius);
+    border-radius: $border-radius;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -143,11 +143,11 @@
       }
       &::-webkit-scrollbar-thumb {
         background-color: map-get($colors, scrollbar-thumb);
-        border-radius: map-get($box, border-radius);
+        border-radius: $border-radius;
       }
       &::-webkit-scrollbar-track {
         background-color: map-get($colors, scrollbar-track);
-        border-radius: map-get($box, border-radius);
+        border-radius: $border-radius;
       }
     }
 
@@ -173,7 +173,7 @@
         background-color: map-get($colors, sidebar-light-row);
       }
       &--rounded {
-        border-radius: map-get($box, border-radius);
+        border-radius: $border-radius;
       }
     }
 
@@ -186,7 +186,7 @@
 
     &__button {
       background-color: map-get($colors, button-bg);
-      border-radius: map-get($box, border-radius);
+      border-radius: $border-radius;
       color: map-get($colors, button-fg);
       margin-bottom: 0.5rem;
       padding: 0.5rem 1rem;

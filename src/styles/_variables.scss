@@ -1,4 +1,5 @@
 $scrollbar-width: 0.5rem;
+$border-radius: 4px;
 
 $xxl: min(85vh, 85vw);
 $xl: min(70vh, 70vw);
@@ -40,10 +41,6 @@ $colors: (
 $fonts: (
   regular: 400,
   bold: 700,
-);
-
-$box: (
-  border-radius: 4px,
 );
 
 $breakpoints: (
