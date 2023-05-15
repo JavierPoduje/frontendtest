@@ -5,7 +5,7 @@
         v-for="(pair, pairIdx) in pairedSquares"
         :key="pairIdx"
         class="sidebar__row"
-        :class="`${rowColor(pairIdx)} ${roundedBorder(pairIdx)}`"
+        :class="rowColor(pairIdx)"
       >
         <div
           v-for="(square, squareIdx) in pair"
@@ -49,7 +49,7 @@
     },
     computed: {
       /**
-       * Given the clicked squares, return them in pairs.
+       * Return the `clickedSquares` in pairs.
        *
        * @returns {Square[][]} The clicked squares in pairs.
        */
@@ -83,7 +83,7 @@
       /**
        * Given a square, return the string representation of it.
        *
-       * @params {Square} square - The square to evaluate.
+       * @params {Square} square - The square to represent as string.
        * @returns {string} The string representation of the square.
        */
       squareStr(square: Square): string {
@@ -97,15 +97,6 @@
        */
       rowColor(idx: number): string {
         return `sidebar__row--${idx % 2 === 0 ? 'dark' : 'light'}`;
-      },
-      /**
-       * Given the index of a row, return the class that will round its border.
-       *
-       * @param {number} idx - The index of the row.
-       * @returns {string} The class that will round the row's border.
-       */
-      roundedBorder(idx: number): string {
-        return `sidebar__row--${idx === 0 ? 'rounded' : ''}`;
       },
     },
   });
@@ -171,9 +162,6 @@
       }
       &--light {
         background-color: map-get($colors, sidebar-light-row);
-      }
-      &--rounded {
-        border-radius: $border-radius;
       }
     }
 

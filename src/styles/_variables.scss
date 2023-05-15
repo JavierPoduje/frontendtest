@@ -44,11 +44,16 @@ $fonts: (
 );
 
 $breakpoints: (
+  // large desktop monitors and high-resolution displays
   xxl: 1400px,
+  // large laptops and desktop monitors
   xl: 1200px,
+  // small laptops and some desktop monitors
   lg: 992px,
+  // tablets, small laptops, and some desktop monitors
   md: 768px,
-  sm: 576px,
+  // mobile phones in landscape orientation, small tablets, and similar devices
+  sm: 576px
 );
 
 $board: (

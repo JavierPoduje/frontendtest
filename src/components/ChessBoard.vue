@@ -1,9 +1,9 @@
 <template>
-  <div class="coordinated__chessboard">
+  <div class="container">
     <div class="coordinates__rows">
-      <span v-for="row in rows" :key="row" class="coordinates__row">{{
-        row
-      }}</span>
+      <span v-for="row in rows" :key="row" class="coordinates__row">
+        {{ row }}
+      </span>
     </div>
     <div class="chessboard">
       <div
@@ -119,17 +119,17 @@
 <style scoped lang="scss">
   @import '../styles/variables.scss';
 
-  $board-size: map-get($board, xxl);
+  $chessboard-size: map-get($board, xxl);
   $square-size: map-get($square, xxl);
-  $coordinate-size: calc($square-size / 3);
-  $board-container-size: calc($board-size + $coordinate-size);
+  $coordinates-size: calc($square-size / 3);
+  $container-size: calc($chessboard-size + $coordinates-size);
 
-  .coordinated__chessboard {
+  .container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: $board-container-size;
+    width: $container-size;
   }
 
   .coordinates {
@@ -137,8 +137,8 @@
       display: flex;
       justify-content: space-around;
       flex-direction: column;
-      height: $board-size;
-      width: $coordinate-size;
+      height: $chessboard-size;
+      width: $coordinates-size;
     }
     &__row,
     &__col {
@@ -152,8 +152,8 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    height: $board-size;
-    width: $board-size;
+    height: $chessboard-size;
+    width: $chessboard-size;
 
     &__square {
       cursor: pointer;
@@ -188,25 +188,25 @@
   }
 
   @media (max-width: map-get($breakpoints, xl)) {
-    $board-size: map-get($board, xl);
+    $chessboard-size: map-get($board, xl);
     $square-size: map-get($square, xl);
-    $coordinate-size: calc($square-size / 3);
-    $board-container-size: calc($board-size + $coordinate-size);
+    $coordinates-size: calc($square-size / 3);
+    $container-size: calc($chessboard-size + $coordinates-size);
 
-    .coordinated__chessboard {
-      width: $board-container-size;
+    .container {
+      width: $container-size;
     }
 
     .coordinates {
       &__rows {
-        height: $board-size;
-        width: $coordinate-size;
+        height: $chessboard-size;
+        width: $coordinates-size;
       }
     }
 
     .chessboard {
-      height: $board-size;
-      width: $board-size;
+      height: $chessboard-size;
+      width: $chessboard-size;
       &__square {
         height: $square-size;
       }
@@ -214,25 +214,25 @@
   }
 
   @media (max-width: map-get($breakpoints, lg)) {
-    $board-size: map-get($board, lg);
+    $chessboard-size: map-get($board, lg);
     $square-size: map-get($square, lg);
-    $coordinate-size: calc($square-size / 3);
-    $board-container-size: calc($board-size + $coordinate-size);
+    $coordinates-size: calc($square-size / 3);
+    $container-size: calc($chessboard-size + $coordinates-size);
 
-    .coordinated__chessboard {
-      width: $board-container-size;
+    .container {
+      width: $container-size;
     }
 
     .coordinates {
       &__rows {
-        height: $board-size;
-        width: $coordinate-size;
+        height: $chessboard-size;
+        width: $coordinates-size;
       }
     }
 
     .chessboard {
-      height: $board-size;
-      width: $board-size;
+      height: $chessboard-size;
+      width: $chessboard-size;
       &__square {
         height: $square-size;
       }
@@ -240,19 +240,19 @@
   }
 
   @media (max-width: map-get($breakpoints, md)) {
-    $board-size: map-get($board, md);
+    $chessboard-size: map-get($board, md);
     $square-size: map-get($square, md);
-    $coordinate-size: calc($square-size / 3);
-    $board-container-size: calc($board-size + $coordinate-size);
+    $coordinates-size: calc($square-size / 3);
+    $container-size: calc($chessboard-size + $coordinates-size);
 
-    .coordinated__chessboard {
-      width: $board-container-size;
+    .container {
+      width: $container-size;
     }
 
     .coordinates {
       &__rows {
-        height: $board-size;
-        width: $coordinate-size;
+        height: $chessboard-size;
+        width: $coordinates-size;
       }
       &__row,
       &__col {
@@ -261,8 +261,8 @@
     }
 
     .chessboard {
-      height: $board-size;
-      width: $board-size;
+      height: $chessboard-size;
+      width: $chessboard-size;
       &__square {
         height: $square-size;
       }
@@ -270,19 +270,19 @@
   }
 
   @media (max-width: map-get($breakpoints, sm)) {
-    $board-size: map-get($board, sm);
+    $chessboard-size: map-get($board, sm);
     $square-size: map-get($square, sm);
-    $coordinate-size: calc($square-size / 3);
-    $board-container-size: calc($board-size + $coordinate-size);
+    $coordinates-size: calc($square-size / 3);
+    $container-size: calc($chessboard-size + $coordinates-size);
 
-    .coordinated__chessboard {
-      width: $board-container-size;
+    .container {
+      width: $container-size;
     }
 
     .coordinates {
       &__rows {
-        height: $board-size;
-        width: $coordinate-size;
+        height: $chessboard-size;
+        width: $coordinates-size;
       }
       &__row,
       &__col {
@@ -291,8 +291,8 @@
     }
 
     .chessboard {
-      height: $board-size;
-      width: $board-size;
+      height: $chessboard-size;
+      width: $chessboard-size;
       &__square {
         height: $square-size;
       }
