@@ -62,6 +62,11 @@
 <style scoped lang="scss">
   @import './styles/variables.scss';
 
+  $board-size: map-get($board, xxl);
+  $square-size: map-get($square, xxl);
+  $coordinate-size: calc($square-size / 3);
+  $board-container-size: calc($board-size + $coordinate-size);
+
   .app_container {
     align-items: center;
     display: flex;
@@ -73,43 +78,92 @@
   }
 
   .chessboard_container {
-    height: map-get($board, xxl);
-    width: map-get($board, xxl);
+    height: $board-container-size;
+    width: $board-container-size;
+  }
+
+  .sidebar_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: $board-container-size;
   }
 
   @media (max-width: map-get($breakpoints, xl)) {
+    $board-size: map-get($board, xl);
+    $square-size: map-get($square, xl);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
     .chessboard_container {
-      height: map-get($board, xl);
-      width: map-get($board, xl);
+      height: $board-container-size;
+      width: $board-container-size;
+    }
+
+    .sidebar_container {
+      height: $board-container-size;
     }
   }
 
   @media (max-width: map-get($breakpoints, lg)) {
+    $board-size: map-get($board, lg);
+    $square-size: map-get($square, lg);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
     .chessboard_container {
-      height: map-get($board, lg);
-      width: map-get($board, lg);
+      height: $board-container-size;
+      width: $board-container-size;
+    }
+
+    .sidebar_container {
+      height: $board-container-size;
     }
   }
 
   @media (max-width: map-get($breakpoints, md)) {
+    $board-size: map-get($board, md);
+    $square-size: map-get($square, md);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
     .app_container {
       flex-direction: column;
     }
 
     .chessboard_container {
-      height: map-get($board, md);
-      width: map-get($board, md);
+      height: $board-container-size;
+      width: $board-container-size;
+    }
+
+    .sidebar_container {
+      flex-direction: row;
+      justify-content: flex-end;
+      width: $board-container-size;
+      height: calc($square-size * 4);
     }
   }
 
   @media (max-width: map-get($breakpoints, sm)) {
+    $board-size: map-get($board, sm);
+    $square-size: map-get($square, sm);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
     .app_container {
       flex-direction: column;
     }
 
     .chessboard_container {
-      height: map-get($board, sm);
-      width: map-get($board, sm);
+      height: $board-container-size;
+      width: $board-container-size;
+    }
+
+    .sidebar_container {
+      flex-direction: row;
+      justify-content: flex-end;
+      width: $board-container-size;
+      height: calc($square-size * 4);
     }
   }
 </style>

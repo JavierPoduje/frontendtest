@@ -1,3 +1,11 @@
+$scrollbar-width: 0.5rem;
+
+$xxl: min(85vh, 85vw);
+$xl: min(70vh, 70vw);
+$lg: min(65vh, 65vw);
+$md: min(79vh, 79vw);
+$sm: min(93vh, 93vw);
+
 $colors: (
   // common
   bg: #312e2b,
@@ -26,7 +34,12 @@ $colors: (
 
   // sidebar
   sidebar-light-row: #2b2827,
-  sidebar-dark-row: #272423,
+  sidebar-dark-row: #272423
+);
+
+$fonts: (
+  regular: 400,
+  bold: 700,
 );
 
 $box: (
@@ -42,19 +55,17 @@ $breakpoints: (
 );
 
 $board: (
-  xxl: min(85vh, 85vw),
-  xl: min(72vh, 72vw),
-  lg: min(64vh, 64vw),
-  md: min(75vh, 75vw),
-  sm: min(95vh, 95vw),
+  xxl: $xxl,
+  xl: $xl,
+  lg: $lg,
+  md: $md,
+  sm: $sm,
 );
 
 $square: (
-  xxl: calc(min(85vh, 85vw) / 8),
-  xl: calc(min(72vh, 72vw) / 8),
-  lg: calc(min(64vh, 64vw) / 8),
-  md: calc(min(75vh, 75vw) / 8),
-  sm: calc(min(95vh, 95vw) / 8),
+  xxl: calc($xxl / 8),
+  xl: calc($xl / 8),
+  lg: calc($lg / 8),
+  md: calc($md / 8),
+  sm: calc($sm / 8),
 );
-
-$scrollbar-width: 0.5rem;

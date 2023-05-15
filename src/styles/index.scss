@@ -4,7 +4,7 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial,
     sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: map-get($fonts, regular);
   background-color: map-get($colors, bg);
   height: calc(100vh);
   width: 100vw;

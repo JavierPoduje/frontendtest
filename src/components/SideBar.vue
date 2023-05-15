@@ -114,6 +114,10 @@
 <style scoped lang="scss">
   @import '../styles/variables.scss';
 
+  $board-size: map-get($board, xxl);
+  $square-size: map-get($square, xxl);
+  $sidebar-width: calc($square-size * 3);
+
   .sidebar {
     align-items: center;
     background-color: map-get($colors, bg2);
@@ -121,10 +125,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: map-get($board, xxl);
+    height: $board-size;
     justify-content: space-between;
     padding: 0 $scrollbar-width;
-    width: calc(map-get($square, xxl) * 3);
+    width: $sidebar-width;
 
     &__rows {
       display: flex;
@@ -151,7 +155,7 @@
       align-items: center;
       display: flex;
       flex-direction: row;
-      font-weight: bold;
+      font-weight: map-get($fonts, bold);
       justify-content: flex-start;
 
       &__numerator {
@@ -186,7 +190,7 @@
       color: map-get($colors, button-fg);
       margin-bottom: 0.5rem;
       padding: 0.5rem 1rem;
-      width: 80%;
+      width: calc($sidebar-width * 0.8);
 
       &:hover {
         background-color: map-get($colors, button-bg-hover);
@@ -200,43 +204,59 @@
   }
 
   @media (max-width: map-get($breakpoints, xl)) {
+    $board-size: map-get($board, xl);
+    $square-size: map-get($square, xl);
+    $sidebar-width: calc($square-size * 3);
+
     .sidebar {
-      width: calc(map-get($square, xl) * 3);
-      height: map-get($board, xl);
+      width: $sidebar-width;
+      height: $board-size;
       &__button {
-        width: calc(calc(map-get($square, xl) * 3) * 0.8);
+        width: calc($sidebar-width * 0.8);
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, lg)) {
+    $board-size: map-get($board, lg);
+    $square-size: map-get($square, lg);
+    $sidebar-width: calc($square-size * 3);
+
     .sidebar {
-      width: calc(map-get($square, lg) * 3);
-      height: map-get($board, lg);
+      width: $sidebar-width;
+      height: $board-size;
       &__button {
-        width: calc(calc(map-get($square, lg) * 3) * 0.8);
+        width: calc($sidebar-width * 0.8);
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, md)) {
+    $board-size: map-get($board, md);
+    $square-size: map-get($square, md);
+    $sidebar-height: calc($square-size * 4);
+
     .sidebar {
-      height: calc(map-get($square, md) * 5);
-      width: map-get($board, md);
+      height: $sidebar-height;
+      width: $board-size;
       padding: 0;
       &__button {
-        width: calc(map-get($board, md) * 0.9);
+        width: calc($board-size * 0.8);
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, sm)) {
+    $board-size: map-get($board, sm);
+    $square-size: map-get($square, sm);
+    $sidebar-height: calc($square-size * 4);
+
     .sidebar {
-      height: calc(map-get($square, sm) * 5);
-      width: map-get($board, sm);
+      height: $sidebar-height;
+      width: $board-size;
       padding: 0;
       &__button {
-        width: calc(map-get($board, md) * 0.9);
+        width: calc($board-size * 0.8);
       }
     }
   }

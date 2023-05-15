@@ -1,21 +1,29 @@
 <template>
-  <div class="chessboard">
-    <div
-      v-for="(col, colIdx) in cols"
-      :key="col"
-      data-test="chessboard__column"
-    >
-      <div v-for="(row, rowIdx) in rows" :key="row">
-        <div
-          class="chessboard__square"
-          :class="`
-            ${squareColor(rowIdx, colIdx)}
-            ${highlightedSquare({ row, col })}
-            ${roundIfCornerSquare(rowIdx, colIdx)}
-          `"
-          :data-test="`chessboard__square--${col}${row}`"
-          @click="onSquareClick({ row, col })"
-        ></div>
+  <div class="coordinated__chessboard">
+    <div class="coordinates__rows">
+      <span v-for="row in rows" :key="row" class="coordinates__row">{{
+        row
+      }}</span>
+    </div>
+    <div class="chessboard">
+      <div
+        v-for="(col, colIdx) in cols"
+        :key="col"
+        data-test="chessboard__column"
+      >
+        <div v-for="(row, rowIdx) in rows" :key="row">
+          <div
+            class="chessboard__square"
+            :class="`
+              ${squareColor(rowIdx, colIdx)}
+              ${highlightedSquare({ row, col })}
+              ${roundIfCornerSquare(rowIdx, colIdx)}
+            `"
+            :data-test="`chessboard__square--${col}${row}`"
+            @click="onSquareClick({ row, col })"
+          ></div>
+        </div>
+        <span class="coordinates__col">{{ col }}</span>
       </div>
     </div>
   </div>
@@ -111,19 +119,47 @@
 <style scoped lang="scss">
   @import '../styles/variables.scss';
 
+  $board-size: map-get($board, xxl);
+  $square-size: map-get($square, xxl);
+  $coordinate-size: calc($square-size / 3);
+  $board-container-size: calc($board-size + $coordinate-size);
+
+  .coordinated__chessboard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: map-get($box, margin);
+    width: $board-container-size;
+  }
+
+  .coordinates {
+    &__rows {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      height: $board-size;
+      width: $coordinate-size;
+    }
+    &__row,
+    &__col {
+      color: map-get($colors, gray);
+      font-weight: map-get($fonts, bold);
+      font-size: 1rem;
+    }
+  }
+
   .chessboard {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    height: map-get($board, xxl);
-    width: map-get($board, xxl);
+    height: $board-size;
+    width: $board-size;
 
     &__square {
       cursor: pointer;
-      height: map-get($square, xxl);
-    }
+      height: $square-size;
 
-    &__square {
       &--light {
         background-color: map-get($colors, light-square);
       }
@@ -153,41 +189,113 @@
   }
 
   @media (max-width: map-get($breakpoints, xl)) {
+    $board-size: map-get($board, xl);
+    $square-size: map-get($square, xl);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
+    .coordinated__chessboard {
+      width: $board-container-size;
+    }
+
+    .coordinates {
+      &__rows {
+        height: $board-size;
+        width: $coordinate-size;
+      }
+    }
+
     .chessboard {
-      height: map-get($board, xl);
-      width: map-get($board, xl);
+      height: $board-size;
+      width: $board-size;
       &__square {
-        height: map-get($square, xl);
+        height: $square-size;
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, lg)) {
+    $board-size: map-get($board, lg);
+    $square-size: map-get($square, lg);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
+    .coordinated__chessboard {
+      width: $board-container-size;
+    }
+
+    .coordinates {
+      &__rows {
+        height: $board-size;
+        width: $coordinate-size;
+      }
+    }
+
     .chessboard {
-      width: map-get($board, lg);
-      height: map-get($board, lg);
+      height: $board-size;
+      width: $board-size;
       &__square {
-        height: map-get($square, lg);
+        height: $square-size;
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, md)) {
+    $board-size: map-get($board, md);
+    $square-size: map-get($square, md);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
+    .coordinated__chessboard {
+      width: $board-container-size;
+    }
+
+    .coordinates {
+      &__rows {
+        height: $board-size;
+        width: $coordinate-size;
+      }
+      &__row,
+      &__col {
+        font-size: 0.8rem;
+      }
+    }
+
     .chessboard {
-      height: map-get($board, md);
-      width: map-get($board, md);
+      height: $board-size;
+      width: $board-size;
       &__square {
-        height: map-get($square, md);
+        height: $square-size;
       }
     }
   }
 
   @media (max-width: map-get($breakpoints, sm)) {
+    $board-size: map-get($board, sm);
+    $square-size: map-get($square, sm);
+    $coordinate-size: calc($square-size / 3);
+    $board-container-size: calc($board-size + $coordinate-size);
+
+    .coordinated__chessboard {
+      width: $board-container-size;
+    }
+
+    .coordinates {
+      &__rows {
+        height: $board-size;
+        width: $coordinate-size;
+      }
+      &__row,
+      &__col {
+        font-size: 0.8rem;
+      }
+    }
+
     .chessboard {
-      height: map-get($board, sm);
-      width: map-get($board, sm);
+      height: $board-size;
+      width: $board-size;
       &__square {
-        height: map-get($square, sm);
+        height: $square-size;
       }
     }
   }

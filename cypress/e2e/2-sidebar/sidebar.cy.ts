@@ -15,13 +15,13 @@ describe('sidebar', () => {
     });
   });
 
-  describe('clicks on square', () => {
-    it('are displayed on sidebar', () => {
+  describe('after the chessboard is clicked', () => {
+    it('squares are displayed on sidebar', () => {
       cy.get('[data-test=chessboard__square--a8]').click();
       cy.get('.sidebar__row__square').should('have.text', 'a8');
     });
 
-    it('are displayed in pairs', () => {
+    it('squares are displayed in pairs', () => {
       // pair 1
       cy.get('[data-test=chessboard__square--a8]').click();
       cy.get('[data-test=chessboard__square--a1]').click();
